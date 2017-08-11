@@ -1,0 +1,128 @@
+clear
+
+sudo rm -rf /usr/lib/python3.6/
+sudo rm -rf /usr/lib/python2.7
+ls
+clear
+
+clear
+
+ls
+clear
+
+scala
+sudo pacman -S scala
+sudo pacman -S yaourt
+sudo pacman -Syu
+sudo pacman -S yaourt
+sudo pacman -Syu
+sudo pacman -S yaourt
+sudo pacman -S yaourt
+sudo pacman -S package-query
+cd Downloads/
+ls
+tar -xvzf yaourt.tar.gz 
+cd yaourt/
+makepkg -si
+ls
+cd ..
+ls
+untar -xvzf scala-2.12.1.tgz 
+tar -xvzf scala-2.12.1.tgz 
+cd scala-2.12.1/
+ls
+makepkg -A
+cd ..
+ls
+rm -rf scala-2.12.1/
+ls
+clear
+
+ls
+sudo mkdir /usr/lib/scala
+tar -xf scala-2.12.1.tgz -C /usr/lib/scala
+sudo tar -xf scala-2.12.1.tgz -C /usr/lib/scala
+rm scala-2.12.1.tgz
+sudo ln -s /usr/lib/scala/scala-2.12.1/bin/scala /bin/scala
+sudo ln -s /usr/lib/scala/scala-2.12.1/bin/scalac /bin/scalac
+scala --version
+sudo pacman -S java
+sudo pacman -S jdk
+sudo pacman -S jre8-openjdk
+scala --version
+scala
+scala
+scala
+java -version
+scala
+sudo pacman -R openjre-jdk8
+sudo pacman -R jdk8-openjre
+sudo pacman -R jre8-openjdk
+ls
+ls
+sudo mkdir /usr/lib/jvm
+sudo tar -xf jdk-8u121-linux-arm64-vfp-hflt.tar.gz -C /usr/lib/jvm
+mv /usr/lib/jvm/jdk1.8.0_121 /usr/lib/jvm/java-8-oracle
+sudo mv /usr/lib/jvm/jdk1.8.0_121 /usr/lib/jvm/java-8-oracle
+rm jdk-8u121-linux-arm64-vfp-hflt.tar.gz 
+ln -s /usr/lib/jvm/java-8-oracle/bin/java /bin/java
+ln -s /usr/lib/jvm/java-8-oracle/bin/java /bin/java
+sudo rm /bin/java
+ln -s /usr/lib/jvm/java-8-oracle/bin/java /bin/java
+sudo ln -s /usr/lib/jvm/java-8-oracle/bin/java /bin/java
+sudo rm /bin/javac
+sudo ln -s /usr/lib/jvm/java-8-oracle/bin/javac /bin/javac
+java -version
+ls /usr/lib/jvm
+sudo rm -rf /usr/lib/java-8*
+ls /usr/lib/jvm
+sudo rm -rf /usr/lib/jvm/java-8*
+ls /usr/lib/jvm
+sudo rm -rf /usr/lib/jvm/*
+ls
+sudo tar -xf jdk-8u121-linux-arm32-vfp-hflt.tar.gz /usr/lib/jvm
+ls /usr/lib/jvm
+ls /usr/lib
+ls /usr/lib/jvm
+cd /usr/lib/jvm
+cd
+sudo tar -xf jdk-8u121-linux-arm32-vfp-hflt.tar.gz /usr/lib/jvm
+ls
+cd Downloads/
+sudo tar -xf jdk-8u121-linux-arm32-vfp-hflt.tar.gz /usr/lib/jvm
+sudo tar -xf jdk-8u121-linux-arm32-vfp-hflt.tar.gz -C /usr/lib/jvm
+sudo mv /usr/lib/jvm/jdk1.8.0_121 /usr/lib/jvm/java-8-oracle
+rm jdk-8u121-linux-arm32-vfp-hflt.tar.gz 
+sudo ln -s /usr/lib/jvm/java-8-oracle/bin/javac /bin/javac
+sudo rm /bin/javac
+sudo rm /bin/java
+sudo ln -s /usr/lib/jvm/java-8-oracle/bin/javac /bin/javac
+sudo ln -s /usr/lib/jvm/java-8-oracle/bin/java /bin/java
+java -version
+scala
+localectl list-keymaps | grep -i colemak
+localectl set-keymap --no-convert colemak
+locatectl status
+localectl status
+reboot
+cd
+pactl
+pactl load-module --help
+pactl load-module 
+pactl load-module 
+pactl load-module module-simple-protocol-tcp
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e channels=2 source=alsa record=true port=8000
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e channels=2 source= record=true port=8000
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e channels=2 record=true port=8000
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e channels=2 record=true port=8000
+pactl list | grep Name
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e channels=2 source=alsa_output.0.analog-stereo record=true port=8000
+pactl load-module module rate=48000 format=s161e channels=2 source=alsa_output.0.analog-stereo record=true port=8000
+pactl load-module module-simple-protocol-tcp
+pactl load-module module-simple-protocol-tcp rate=48000 format=s161e
+pactl load-module module-simple-protocol-tcp rate=48000
+mpv https://www.youtube.com/watch?v=6xaaeop7gJ8 &
+mpv http://www.sextvx.com/de/video/442597/kiki-vidis-threesome
+clear
+
+screen
