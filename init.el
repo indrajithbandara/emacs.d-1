@@ -127,6 +127,9 @@
 ;;---------------------------------------------------------------------------
 ;; RYAN'S EXTRA STUFF
 ;;---------------------------------------------------------------------------
+;; init-javascript extras
+(add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
+
 (require 'init-evil)
 (require 'init-gnus)
 (require 'init-workgroups2)
