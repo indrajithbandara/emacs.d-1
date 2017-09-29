@@ -30,6 +30,9 @@
                                                 "http://melpa.org/packages/"
                                               "https://melpa.org/packages/")))
 
+(setq package-check-signature nil)
+;; stops failed to download X errors
+
 ;; NOTE: In case of MELPA problems, the official mirror URL is
 ;; https://www.mirrorservice.org/sites/stable.melpa.org/packages/
 

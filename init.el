@@ -130,6 +130,8 @@
 ;; init-javascript extras
 (add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
 
+;; JIRA in emacs..
+(require 'init-jira)
 (require 'init-evil)
 (require 'init-gnus)
 (require 'init-workgroups2)
