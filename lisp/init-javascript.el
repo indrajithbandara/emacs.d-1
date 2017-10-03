@@ -109,14 +109,16 @@
 ;; Tern parses js files and gives type inference!
 
 
-(add-to-list 'company-backends 'company-tern)
+(with-eval-after-load 'company
+                       (add-to-list 'company-backends 'company-tern))
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
                            (company-mode)
                            (linum-mode)))
 ;; Disable completion keybindings, as we use xref-js2 instead
-(define-key tern-mode-keymap (kbd "M-.") nil)
-(define-key tern-mode-keymap (kbd "M-,") nil)
+(with-eval-after-load 'tern
+  (define-key tern-mode-keymap (kbd "M-.") nil)
+  (define-key tern-mode-keymap (kbd "M-,") nil))
 
 ;; 2 spaces indentation
 (add-hook 'js2-mode-hook

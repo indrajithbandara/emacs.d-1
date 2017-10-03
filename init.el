@@ -70,6 +70,7 @@
 (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)
+(require 'init-evil)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
@@ -122,60 +123,37 @@
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
-
-;;---------------------------------------------------------------------------
-;; RYAN'S EXTRA STUFF
-;;---------------------------------------------------------------------------
-;; init-javascript extras
-
-;; JIRA in emacs..
+(require 'init-linum-mode)
+(require 'init-erc)
 (require 'init-jira)
-;; Enable new evil
-(require 'evil)
-
+(require 'init-gnus)
+(require 'init-workgroups2)
+(require 'init-elscreen)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq epg-gpg-program "/usr/local/bin/gpg")
 
-(require 'init-evil)
-(require 'init-gnus)
-(require 'init-workgroups2)
-(require 'init-elscreen)
 (evil-mode 1)
 (elscreen-start)
-
 (workgroups-mode 1)
 
-(require 'init-linum-mode)
-(require 'init-erc)
-
-;; TODO :: Seperate to init-go
-(add-to-list 'load-path "~/go-autocomplete/")
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
-
-(require 'go-eldoc)
+(maybe-require-package 'auto-complete-config)
+(maybe-require-package 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-;; SCALA
-(require 'ensime)
-
-;; REST
-(require 'restclient)
+(maybe-require-package 'ensime)
+(maybe-require-package 'restclient)
 
 ;; UTF-8 TERM encoding
 (setenv "LANG" "en_US.UTF-8")
 
 ;; PDF-TOOLS
+(maybe-require-package 'pdf-tools)
 (pdf-tools-install)
 
 (blink-cursor-mode 0)
-
-;; INDENT
-(setq tab-width 4)
 
 ;; FRAME MANAGEMENT
 (defun ido-switch-frame ()
@@ -197,9 +175,6 @@
 
 ;; Useful for quick feedback from functions
 (global-set-key (kbd "C-x 4 e") 'eval-region)
-
-;; Color-theme hack, load-theme somehow lost between Purcell and my fork
-(load-theme 'molokai t)
 
 (defun paste-from-x-clipboard ()
   (interactive)

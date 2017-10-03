@@ -1,5 +1,14 @@
-;; @see https://bitbucket.org/lyro/evil/issue/360/possible-evil-search-symbol-forward
-;; evil 1.0.8 search word instead of symbol
+(maybe-require-package 'evil)
+(maybe-require-package 'evil-surround)
+(maybe-require-package 'evil-visualstar)
+(maybe-require-package 'evil-mark-replace)
+(maybe-require-package 'evil-exchange)
+(maybe-require-package 'evil-nerd-commenter)
+(maybe-require-package 'evil-matchit)
+(maybe-require-package 'evil-numbers)
+(maybe-require-package 'evil-escape)
+(maybe-require-package 'general)
+
 (setq evil-symbol-word-search t)
 ;; load undo-tree and ert
 (add-to-list 'load-path "~/.emacs.d/site-lisp/evil/lib")
@@ -327,11 +336,9 @@ If the character before and after CH is space or tab, CH is NOT slash"
 (define-key evil-normal-state-map (kbd "C-]") 'etags-select-find-tag-at-point)
 (define-key evil-visual-state-map (kbd "C-]") 'etags-select-find-tag-at-point)
 
-(require 'evil-numbers)
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
-(require 'evil-matchit)
 (global-evil-matchit-mode 1)
 
 ;; press ",xx" to expand region
@@ -700,12 +707,10 @@ If the character before and after CH is space or tab, CH is NOT slash"
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
 
-(require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
 
 ;; {{ evil-exchange
 ;; press gx twice to exchange, gX to cancel
-(require 'evil-exchange)
 ;; change default key bindings (if you want) HERE
 ;; (setq evil-exchange-key (kbd "zx"))
 (evil-exchange-install)

@@ -1,3 +1,5 @@
+(maybe-require-package 'workgroups2)
+
 (setq wg-use-default-session-file nil)
 ;; don't open last workgroup automatically in `wg-open-session',
 ;; I only want to check available workgroups! Nothing more.
