@@ -128,14 +128,25 @@
 ;; RYAN'S EXTRA STUFF
 ;;---------------------------------------------------------------------------
 ;; init-javascript extras
-(add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
 
 ;; JIRA in emacs..
 (require 'init-jira)
+;; Enable new evil
+(require 'evil)
+
+
+;; GPG in MacOSX emacs
+(setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq epg-gpg-program "/usr/local/bin/gpg")
+
 (require 'init-evil)
 (require 'init-gnus)
 (require 'init-workgroups2)
 (require 'init-elscreen)
+(evil-mode 1)
+(elscreen-start)
+
 (workgroups-mode 1)
 
 (require 'init-linum-mode)
@@ -255,7 +266,9 @@
 
 (provide 'init)
 
+(set-default-font "Terminus (TTF)-12")
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+(put 'set-goal-column 'disabled nil)

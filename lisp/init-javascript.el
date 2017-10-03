@@ -51,13 +51,6 @@
 
 ;; Javascript nests {} and () a lot, so I find this helpful
 
-(when (and (executable-find "ag")
-           (maybe-require-package 'xref-js2))
-  (after-load 'js2-mode
-    (define-key js2-mode-map (kbd "M-.") nil)
-    (add-hook 'js2-mode-hook
-              (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))))
-
 
 
 ;;; Coffeescript
@@ -99,19 +92,32 @@
     (add-hook 'skewer-mode-hook
               (lambda () (inferior-js-keys-mode -1)))))
 
+;; Xref-js2
+(add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
 (require 'js2-refactor)
 (require 'xref-js2)
+(add-hook 'js2-mode-hook
+          (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-r")
 (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-
-;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
-;; unbind it.
 (define-key js-mode-map (kbd "M-.") nil)
-(define-key evil-normal-state-map (kbd "M-.") nil)
-(add-hook 'js2-mode-hook (lambda ()
-                           (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
+;; Tern parses js files and gives type inference!
+(require 'company-tern)
+
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js2-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)
+                           (linum-mode)))
+;; Disable completion keybindings, as we use xref-js2 instead
+(define-key tern-mode-keymap (kbd "M-.") nil)
+(define-key tern-mode-keymap (kbd "M-,") nil)
+
+;; 2 spaces indentation
+(add-hook 'js2-mode-hook
+          (lambda () (setq evil-shift-width 2)))
 
 (provide 'init-javascript)

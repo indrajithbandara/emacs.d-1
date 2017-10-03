@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "helm-spotify" "helm-spotify.el" (22627 36392
+;;;### (autoloads nil "helm-spotify" "helm-spotify.el" (22989 4572
 ;;;;;;  0 0))
 ;;; Generated autoloads from helm-spotify.el
 

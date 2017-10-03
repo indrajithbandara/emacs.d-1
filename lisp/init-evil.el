@@ -713,4 +713,6 @@ If the character before and after CH is space or tab, CH is NOT slash"
 
 ;; }}
 
+(define-key evil-normal-state-map (kbd "M-.") nil)
+
 (provide 'init-evil)
