@@ -2,6 +2,7 @@
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'coffee-mode)
 (maybe-require-package 'js2-refactor)
+(maybe-require-package 'company-tern)
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -106,7 +107,7 @@
 (define-key js-mode-map (kbd "M-.") nil)
 
 ;; Tern parses js files and gives type inference!
-(require 'company-tern)
+
 
 (add-to-list 'company-backends 'company-tern)
 (add-hook 'js2-mode-hook (lambda ()
