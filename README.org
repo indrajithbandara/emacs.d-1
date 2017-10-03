@@ -1,0 +1,135 @@
+* A reasonable Emacs config
+  :PROPERTIES:
+  :CUSTOM_ID: a-reasonable-emacs-config
+  :END:
+
+This is my emacs configuration tree, continually used and tweaked since
+2000, and it may be a good starting point for other Emacs users,
+especially those who are web developers. These days it's somewhat geared
+towards OS X, but it is known to also work on Linux and Windows.
+
+Emacs itself comes with support for many programming languages. This
+config adds improved defaults and extended support for the following:
+
+-  Ruby / Ruby on Rails
+-  CSS / LESS / SASS / SCSS
+-  HAML / Markdown / Textile / ERB
+-  Clojure (with Cider and nRepl)
+-  Javascript / Coffeescript
+-  Python
+-  PHP
+-  Haskell
+-  Elm
+-  Erlang
+-  Common Lisp (with Slime)
+
+In particular, there's a nice config for /autocompletion/ with
+[[https://company-mode.github.io/][company]], and [[http://www.flycheck.org][flycheck]] is used to immediately highlight
+syntax errors in Ruby, Python, Javascript, Haskell and a number of other
+languages.
+
+** Supported Emacs versions
+   :PROPERTIES:
+   :CUSTOM_ID: supported-emacs-versions
+   :END:
+
+The config should run on Emacs 23.3 or greater and is designed to
+degrade smoothly - see the Travis build - but note that Emacs 24 and
+above is required for an increasing number of key packages, including
+=magit=, =company= and =flycheck=, so to get full you should use the
+latest Emacs version available to you.
+
+Some Windows users might need to follow
+[[http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html][these
+instructions]] to get TLS (ie. SSL) support included in their Emacs.
+
+** Other requirements
+   :PROPERTIES:
+   :CUSTOM_ID: other-requirements
+   :END:
+
+To make the most of the programming language-specific support in this
+config, further programs will likely be required, particularly those
+that [[https://github.com/flycheck/flycheck][flycheck]] uses to provide
+on-the-fly syntax checking.
+
+** Installation
+   :PROPERTIES:
+   :CUSTOM_ID: installation
+   :END:
+
+To install, clone this repo to =~/.emacs.d=, i.e. ensure that the
+=init.el= contained in this repo ends up at =~/.emacs.d/init.el=:
+
+#+BEGIN_EXAMPLE
+    git clone https://github.com/watkinsr/emacs.d.git ~/.emacs.d
+#+END_EXAMPLE
+
+Upon starting up Emacs for the first time, further third-party packages
+will be automatically downloaded and installed. If you encounter any
+errors at that stage, try restarting Emacs, and possibly running
+=M-x package-refresh-contents= before doing so.
+
+** Important note about =ido=
+   :PROPERTIES:
+   :CUSTOM_ID: important-note-about-ido
+   :END:
+
+This config enables =ido-mode= completion in the minibuffer wherever
+possible, which might confuse you when trying to open files using
+@@html:<kbd>@@C-x C-f@@html:</kbd>@@, e.g. when you want to open a
+directory to use =dired= -- if you get stuck, use
+@@html:<kbd>@@C-f@@html:</kbd>@@ to drop into the regular =find-file=
+prompt. (You might want to customize the =ido-show-dot-for-dired=
+variable if this is an issue for you.)
+
+** Updates
+   :PROPERTIES:
+   :CUSTOM_ID: updates
+   :END:
+
+Update the config with =git pull=. You'll probably also want/need to
+update the third-party packages regularly too:
+
+@@html:<kbd>@@M-x package-list-packages@@html:</kbd>@@, then
+@@html:<kbd>@@U@@html:</kbd>@@ followed by
+@@html:<kbd>@@x@@html:</kbd>@@.
+
+You should usually restart Emacs after pulling changes or updating
+packages so that they can take effect. Emacs should usually restore your
+working buffers when you restart due to this configuration's use of the
+=desktop= and =session= packages.
+
+** Adding your own customization
+   :PROPERTIES:
+   :CUSTOM_ID: adding-your-own-customization
+   :END:
+
+To add your own customization, use @@html:<kbd>@@M-x
+customize@@html:</kbd>@@ and/or create a file
+=~/.emacs.d/lisp/init-local.el= which looks like this:
+
+#+BEGIN_EXAMPLE
+    ... your code here ...
+
+    (provide 'init-local)
+#+END_EXAMPLE
+
+If you need initialisation code which executes earlier in the startup
+process, you can also create an =~/.emacs.d/lisp/init-preload-local.el=
+file.
+
+If you plan to customize things more extensively, you should probably
+just fork the repo and hack away at the config to make it your own!
+Remember to regularly merge in changes from this repo, so that your
+config remains compatible with the latest package and Emacs versions.
+
+/Please note that I cannot provide support for customised versions of
+this configuration./
+
+** Similar configs
+   :PROPERTIES:
+   :CUSTOM_ID: similar-configs
+   :END:
+
+You might also want to check out =emacs-starter-kit= and =prelude=.
