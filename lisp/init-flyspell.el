@@ -16,7 +16,6 @@
                   haskell-mode-hook
                   caml-mode-hook
                   nxml-mode-hook
-                  crontab-mode-hook
                   perl-mode-hook
                   tcl-mode-hook
                   javascript-mode-hook))

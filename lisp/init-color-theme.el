@@ -1,4 +1,4 @@
-(require 'color-theme)
+(maybe-require-package 'color-theme)
 
 ;; {{ work around color theme bug
 ;; @see https://plus.google.com/106672400078851000780/posts/KhTgscKE8PM
