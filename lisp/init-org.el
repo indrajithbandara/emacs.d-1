@@ -1,9 +1,6 @@
 (when (< emacs-major-version 24)
   (require-package 'org))
 (require-package 'org-fstree)
-(when *is-a-mac*
-  (maybe-require-package 'grab-mac-link)
-  (require-package 'org-mac-iCal))
 
 (maybe-require-package 'org-cliplink)
 
@@ -309,27 +306,6 @@ typical word processor."
 (setq org-pomodoro-keep-killed-pomodoro-time t)
 (after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
-
-
-;; ;; Show iCal calendars in the org agenda
-;; (when (and *is-a-mac* (require 'org-mac-iCal nil t))
-;;   (setq org-agenda-include-diary t
-;;         org-agenda-custom-commands
-;;         '(("I" "Import diary from iCal" agenda ""
-;;            ((org-agenda-mode-hook #'org-mac-iCal)))))
-
-;;   (add-hook 'org-agenda-cleanup-fancy-diary-hook
-;;             (lambda ()
-;;               (goto-char (point-min))
-;;               (save-excursion
-;;                 (while (re-search-forward "^[a-z]" nil t)
-;;                   (goto-char (match-beginning 0))
-;;                   (insert "0:00-24:00 ")))
-;;               (while (re-search-forward "^ [a-z]" nil t)
-;;                 (goto-char (match-beginning 0))
-;;                 (save-excursion
-;;                   (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
-;;                 (insert (match-string 0))))))
 
 
 (after-load 'org
