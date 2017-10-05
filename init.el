@@ -131,6 +131,7 @@
 (require 'init-elscreen)
 (require 'init-image)
 (require 'init-spotify)
+(require 'init-pr)
 (require 'init-pdf)
 
 ;; GPG in MacOSX emacs
@@ -186,8 +187,12 @@
 (setq-default TeX-master nil)
 
 ;; Open urls with icecat
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "icecat")
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "icecat")
+
+;; Open urls with MACOS default
+(setq browse-url-browser-function (quote browse-url-generic))
+(setq browse-url-generic-program "open")
 
 ;; Tramp setup...
 (add-to-list 'load-path "~/.emacs.d/tramp-2.2.7/lisp")
