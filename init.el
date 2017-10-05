@@ -129,13 +129,15 @@
 (require 'init-gnus)
 (require 'init-workgroups2)
 (require 'init-elscreen)
+(require 'init-image)
+(require 'init-spotify)
+(require 'init-pdf)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq epg-gpg-program "/usr/local/bin/gpg")
 
-(evil-mode 1)
 (elscreen-start)
 (workgroups-mode 1)
 
@@ -148,10 +150,6 @@
 
 ;; UTF-8 TERM encoding
 (setenv "LANG" "en_US.UTF-8")
-
-;; PDF-TOOLS
-(maybe-require-package 'pdf-tools)
-(pdf-tools-install)
 
 (blink-cursor-mode 0)
 

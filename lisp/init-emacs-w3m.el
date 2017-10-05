@@ -1,3 +1,5 @@
+(maybe-require-package 'w3m)
+
 (setq w3m-coding-system 'utf-8
       w3m-file-coding-system 'utf-8
       w3m-file-name-coding-system 'utf-8
@@ -9,7 +11,7 @@
       w3m-terminal-coding-system 'utf-8
       w3m-use-cookies t
       w3m-cookie-accept-bad-cookies t
-      w3m-home-page "http://www.duckduckgo.com"
+      w3m-home-page "http://www.google.co.uk"
       w3m-command-arguments       '("-F" "-cookie")
       w3m-mailto-url-function     'compose-mail
       browse-url-browser-function 'w3m
@@ -34,7 +36,7 @@
 
 ;; C-u S g RET <search term> RET in w3m
 (setq w3m-search-engine-alist
-      '(("g" "http://www.duckduckgo.com/html?q=%s" utf-8)
+      '(("g" "http://www.google.co.uk/search?q=%s" utf-8)
         ;; stackoverflow search
         ("q" "http://www.google.de/search?q=%s+site:stackoverflow.com" utf-8)
         ;; elisp code search
@@ -49,7 +51,7 @@
         ("j" "http://www.google.de/search?q=%s+site:developer.mozilla.org/en-US" utf-8)))
 
 (defun w3m-set-url-from-search-engine-alist (k l url)
-    (if (listp l)
+  (if (listp l)
       (if (string= k (caar l))
           (setcdr (car l) (list url))
         (w3m-set-url-from-search-engine-alist k (cdr l) url))))
