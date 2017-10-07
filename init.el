@@ -142,7 +142,6 @@
 (elscreen-start)
 (workgroups-mode 1)
 
-(maybe-require-package 'auto-complete-config)
 (maybe-require-package 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
@@ -243,7 +242,7 @@
 
 (provide 'init)
 
-(set-default-font "Terminus (TTF)-12")
+;; (set-default-font "Terminus (TTF)-12")
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
