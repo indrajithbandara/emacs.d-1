@@ -133,6 +133,7 @@
 (require 'init-spotify)
 (require 'init-pr)
 (require 'init-pdf)
+(require 'init-neotree)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
