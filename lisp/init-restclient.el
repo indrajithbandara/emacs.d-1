@@ -1,0 +1,1 @@
+(maybe-require-package 'restclient)

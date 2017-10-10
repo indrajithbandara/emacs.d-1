@@ -34,3 +34,5 @@
 (eval-after-load 'magit
   '(define-key magit-mode-map "v"
      #'ryan/visit-pull-request-url))
+
+(provide 'init-pr)

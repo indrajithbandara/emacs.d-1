@@ -3,6 +3,14 @@
 (maybe-require-package 'coffee-mode)
 (maybe-require-package 'js2-refactor)
 (maybe-require-package 'company-tern)
+(maybe-require-package 'indium)
+
+;; Start chrome w/ debugging and connect via indium-connect-to-chrome
+;; open /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 https://localhost:3000
+
+(defun chrome-debug ()
+  (interactive)
+  (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &"))
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -119,6 +127,11 @@
 (with-eval-after-load 'tern
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil))
+
+;; Disable evil-repeat-bindings, as we use xref-js2 instead
+(with-eval-after-load 'evil
+  (define-key evil-motion-state-map (kbd "M-.") nil))
+
 
 ;; 2 spaces indentation
 (add-hook 'js2-mode-hook
