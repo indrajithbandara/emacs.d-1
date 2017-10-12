@@ -8,6 +8,6 @@
 (maybe-require-package 'github-issues)
 (maybe-require-package 'magit-gh-pulls)
 
-
+(maybe-require-package 'magithub)
 
 (provide 'init-github)
