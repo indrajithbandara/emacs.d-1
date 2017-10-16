@@ -134,6 +134,10 @@
 (require 'init-pr)
 (require 'init-pdf)
 (require 'init-neotree)
+(require 'init-react-native)
+(require 'init-android)
+(require 'init-harvest)
+(require 'init-guile)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
