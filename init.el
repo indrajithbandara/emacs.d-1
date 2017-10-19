@@ -138,6 +138,7 @@
 (require 'init-android)
 (require 'init-harvest)
 (require 'init-guile)
+(require 'init-mongo)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))

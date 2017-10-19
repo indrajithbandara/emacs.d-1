@@ -8,9 +8,7 @@
 ;; Start chrome w/ debugging and connect via indium-connect-to-chrome
 ;; open /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 https://localhost:3000
 
-(defun chrome-debug ()
-  (interactive)
-  (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &"))
+
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -136,5 +134,25 @@
 ;; 2 spaces indentation
 (add-hook 'js2-mode-hook
           (lambda () (setq evil-shift-width 2)))
+
+
+(defun ryan/webradr-api-run ()
+  (interactive)
+  (let ((currentbuf (get-buffer-window (current-buffer)))
+        (newbuf     (generate-new-buffer-name "*webradr-api*")))
+    (generate-new-buffer newbuf)
+    (set-window-dedicated-p currentbuf nil)
+    (set-window-buffer currentbuf newbuf)
+    (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
+    (shell-command "meteor run &" newbuf)))
+
+(defun ryan/react-native-chrome-debugger ()
+  (interactive)
+  (let ((currentbuf (get-buffer-window (current-buffer)))
+        (newbuf     (generate-new-buffer-name "*chrome-debugger*")))
+    (generate-new-buffer newbuf)
+    (set-window-dedicated-p currentbuf nil)
+    (set-window-buffer currentbuf newbuf)
+    (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &" newbuf)))
 
 (provide 'init-javascript)
