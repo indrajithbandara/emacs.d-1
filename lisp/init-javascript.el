@@ -4,6 +4,7 @@
 (maybe-require-package 'js2-refactor)
 (maybe-require-package 'company-tern)
 (maybe-require-package 'indium)
+(maybe-require-package 'helm)
 
 ;; Start chrome w/ debugging and connect via indium-connect-to-chrome
 ;; open /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 https://localhost:3000
@@ -144,7 +145,7 @@
     (set-window-dedicated-p currentbuf nil)
     (set-window-buffer currentbuf newbuf)
     (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
-    (shell-command "meteor run &" newbuf)))
+    (shell-command "npm run dev &" newbuf)))
 
 (defun ryan/react-native-chrome-debugger ()
   (interactive)
@@ -155,4 +156,20 @@
     (set-window-buffer currentbuf newbuf)
     (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &" newbuf)))
 
+(js2-imenu-extras-mode)
+
+(maybe-require-package 'js-doc)
+(setq js-doc-mail-address "rwatkins@redant.com"
+      js-doc-author (format "Ryan Watkins <%s>" js-doc-mail-address)
+      js-doc-url ""
+      js-doc-license "")
+
+(add-hook 'js2-mode-hook
+          #'(lambda ()
+              (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc)
+              (define-key js2-mode-map "@" 'js-doc-insert-tag)))
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-to-list 'flycheck-enabled-checkers 'javascript-standard)
+(flycheck-select-checker 'javascript-standard)
 (provide 'init-javascript)

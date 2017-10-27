@@ -1,11 +1,22 @@
-(defun ryan/open-new-packager ()
+(defun ryan/open-new-react-packager ()
+  (interactive)
+  (ryan/spawn-new-react-packager (read-string "Project? [~/projects/dev/js/?]")))
+
+(defun ryan/spawn-new-react-packager (path)
+  (let ((currentbuf (get-buffer-window (current-buffer)))
+        (newbuf     (generate-new-buffer-name "*react-native-packager*")))
+    (generate-new-buffer newbuf)
+    (set-window-dedicated-p currentbuf nil)
+    (set-window-buffer currentbuf newbuf)
+    (shell-command (concat "cd ~/projects/dev/js/" path "/node_modules/react-native/packager && bash launchPackager.command &") newbuf)))
+
+(defun ryan/react-packager-webradr ()
   (interactive)
   (let ((currentbuf (get-buffer-window (current-buffer)))
         (newbuf     (generate-new-buffer-name "*react-native-packager*")))
     (generate-new-buffer newbuf)
     (set-window-dedicated-p currentbuf nil)
     (set-window-buffer currentbuf newbuf)
-    (shell-command "cd ~/projects/dev/js/mastercard/mastercard-cash-passport/node_modules/react-native/packager && bash launchPackager.command &" newbuf)))
-
+    (shell-command "cd ~/projects/dev/js/webradr/webradr-app/node_modules/react-native/scripts && bash launchPackager.command &" newbuf)))
 
 (provide 'init-react-native)
