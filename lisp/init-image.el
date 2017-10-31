@@ -2,15 +2,11 @@
 (maybe-require-package 'image+)
 
 ;; Helper functions
-(defun img-dims-buffer ()
+(defun ryan/image-dims-buffer ()
   "Get image dimensions of image in a buffer"
   (shell-command-to-string (concat "sips -g pixelHeight -g pixelWidth " buffer-file-name)))
 
-(defun capture-image-dimensions ()
-  "Capture image-dims-in-a-buffer in variables"
-  )
-
-(defun ryan-convert-image ()
+(defun ryan/image-convert-image ()
   "Convert a given file to 3x/2x w/ diff fname"
   (interactive)
   (let*

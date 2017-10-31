@@ -169,7 +169,10 @@
               (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc)
               (define-key js2-mode-map "@" 'js-doc-insert-tag)))
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(add-to-list 'flycheck-enabled-checkers 'javascript-standard)
-(flycheck-select-checker 'javascript-standard)
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+;; (add-to-list 'flycheck-enabled-checkers 'javascript-standard)
+(defun ryan/enable-js-standard ()
+  (interactive)
+  (flycheck-select-checker 'javascript-standard))
+
 (provide 'init-javascript)

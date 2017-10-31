@@ -25,7 +25,7 @@
 (defun visit-bb-pull-request (repo)
   (message repo)
   (browse-url
-   (format "https://bitbucket.org/%s/pull-request/new?source=%s&t=1"
+   (format "%s/pull-request/new?source=%s&t=1"
            (replace-regexp-in-string
             "\\`.+bitbucket\\.org:\\(.+\\)\\.git\\'" "\\1"
             repo)

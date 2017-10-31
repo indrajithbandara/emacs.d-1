@@ -154,6 +154,9 @@
 (maybe-require-package 'ensime)
 (maybe-require-package 'restclient)
 
+(add-to-list 'load-path "~/.emacs.d/es6-snippets")
+(require 'es6-snippets)
+
 ;; UTF-8 TERM encoding
 (setenv "LANG" "en_US.UTF-8")
 
