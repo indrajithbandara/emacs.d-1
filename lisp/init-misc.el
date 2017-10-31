@@ -5,9 +5,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (dolist (hook (if (fboundp 'prog-mode)
-                  '(prog-mode-hook ruby-mode-hook)
-                '(find-file-hooks)))
-  (add-hook hook 'goto-address-prog-mode))
+									'(prog-mode-hook ruby-mode-hook)
+								'(find-file-hooks)))
+	(add-hook hook 'goto-address-prog-mode))
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (setq goto-address-mail-face 'link)
 
@@ -15,5 +15,6 @@
 
 (add-auto-mode 'conf-mode "Procfile")
 
+(maybe-require-package 'dictionary)
 
 (provide 'init-misc)
