@@ -7,9 +7,10 @@
 auto-save-list
 tramp
 .\#*
-
-network-security-data
-
+ditaa0_9.jar
+network-security.data
+custom.el
+projectile-bookmarks.eld
 # Org-mode
 .org-id-locations
 *_archive
