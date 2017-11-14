@@ -145,7 +145,7 @@
     (set-window-dedicated-p currentbuf nil)
     (set-window-buffer currentbuf newbuf)
     (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
-    (shell-command "npm run dev &" newbuf)))
+    (shell-command "npm run dev-local &" newbuf)))
 
 (defun ryan/react-native-chrome-debugger ()
   (interactive)

@@ -139,6 +139,7 @@
 (require 'init-harvest)
 (require 'init-guile)
 (require 'init-mongo)
+(require 'init-restclient)
 
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
