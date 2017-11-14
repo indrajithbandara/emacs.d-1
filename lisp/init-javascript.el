@@ -206,11 +206,30 @@
     (set-window-buffer currentbuf newbuf)
     newbuf))
 
-(defun ryan/create-data-driven-component (component-name)
+(defun ryan/create-data-driven-config (module-name service scene-name mock)
+  (interactive)
+  (progn (prin1 module-name)
+         (prin1 service)
+         (prin1 scene-name)
+         (prin1 mock)))
+  ;; (cons module-name '(service scene-name mock)))
+
+(defun ryan/create-data-driven-service (name &rest endpoint-types)
+  (interactive)
+  (cons name '(endpoint-types)))
+
+(ryan/create-data-driven-config 'report (ryan/create-data-driven-service 'report 'GET 'POST) 'ReportSubmission 'foo)
+
+(defun ryan/create-data-driven-component (name config)
   (interactive)
   (let ((buf (ryan/gen-switch-buffer "*JS-data-driven-create*"))
-        (cd-command "cd ~/projects/dev/js/webradr/webradr-app/scripts/data-component-creator;")
-        (call-script (concat "./data-component-creator " component-name " &")))
+        (cd-scripts "cd ~/projects/dev/js/webradr/webradr-app/scripts;")
+        (module-create (concat "cd module-creator; ./module-creator " name "; cd ../;"))
+        (service-create (concat "cd service-creator; ./service-creator " name)))
+    ;; cd module-creator; ./module-creator $COMPONENT_NAME; cd ../;
+    ;; cd service-creator; ./service-creator $COMPONENT_NAME; cd ../;
+    ;; cd scene-creator; ./scene-creator $COMPONENT_NAME; cd ../;
+
     (shell-command (concat cd-command call-script) buf)))
 
 (provide 'init-javascript)

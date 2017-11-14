@@ -134,7 +134,6 @@
 (require 'init-pr)
 (require 'init-pdf)
 (require 'init-neotree)
-(require 'init-react-native)
 (require 'init-android)
 (require 'init-harvest)
 (require 'init-guile)
