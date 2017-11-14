@@ -136,26 +136,6 @@
 (add-hook 'js2-mode-hook
           (lambda () (setq evil-shift-width 2)))
 
-
-(defun ryan/webradr-api-run ()
-  (interactive)
-  (let ((currentbuf (get-buffer-window (current-buffer)))
-        (newbuf     (generate-new-buffer-name "*webradr-api*")))
-    (generate-new-buffer newbuf)
-    (set-window-dedicated-p currentbuf nil)
-    (set-window-buffer currentbuf newbuf)
-    (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
-    (shell-command "npm run dev-local &" newbuf)))
-
-(defun ryan/react-native-chrome-debugger ()
-  (interactive)
-  (let ((currentbuf (get-buffer-window (current-buffer)))
-        (newbuf     (generate-new-buffer-name "*chrome-debugger*")))
-    (generate-new-buffer newbuf)
-    (set-window-dedicated-p currentbuf nil)
-    (set-window-buffer currentbuf newbuf)
-    (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &" newbuf)))
-
 (js2-imenu-extras-mode)
 
 (maybe-require-package 'js-doc)
@@ -171,8 +151,66 @@
 
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; (add-to-list 'flycheck-enabled-checkers 'javascript-standard)
+(defun ryan/open-new-react-packager ()
+  (interactive)
+  (ryan/spawn-new-react-packager (read-string "Project? [~/projects/dev/js/?]")))
+
+(defun ryan/spawn-new-react-packager (path)
+  (let ((buf (ryan/gen-switch-buffer "*react-native-packager*")))
+    (shell-command (concat "cd ~/projects/dev/js/" path "/node_modules/react-native/packager && bash launchPackager.command &") buf)))
+
+(defun ryan/webradr-react-packager ()
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*react-native-packager*")))
+    (shell-command "cd ~/projects/dev/js/webradr/webradr-app/node_modules/react-native/scripts && bash launchPackager.command &" buf)))
+
+(defun ryan/webradr-ios (ios-type)
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*webradr-ios*")))
+    (shell-command (concat "cd ~/projects/dev/js/webradr/webradr-app; npm run " ios-type " &") buf)))
+
+(defun ryan/webradr-init-local ()
+  (interactive)
+  (ryan/webradr-react-packager)
+  (ryan/webradr-api-run)
+  (split-window-horizontally)
+  (ryan/webradr-ios "ios-local"))
+
+(defun ryan/webradr-init ()
+  (interactive)
+  (ryan/webradr-react-packager)
+  (split-window-horizontally)
+  (ryan/webradr-ios "ios-develop"))
+
+(defun ryan/webradr-api-run ()
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*webradr-api*")))
+    (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
+    (shell-command "npm run dev-local &" buf)))
+
 (defun ryan/enable-js-standard ()
   (interactive)
   (flycheck-select-checker 'javascript-standard))
+
+(defun ryan/react-native-chrome-debugger ()
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*chrome-debugger*")))
+    (shell-command "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 http://localhost:8081/debugger-ui &" buf)))
+
+(defun ryan/gen-switch-buffer (new-buffer-name)
+  (interactive)
+  (let ((currentbuf (get-buffer-window (current-buffer)))
+        (newbuf     (generate-new-buffer-name new-buffer-name)))
+    (generate-new-buffer newbuf)
+    (set-window-dedicated-p currentbuf nil)
+    (set-window-buffer currentbuf newbuf)
+    newbuf))
+
+(defun ryan/create-data-driven-component (component-name)
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*JS-data-driven-create*"))
+        (cd-command "cd ~/projects/dev/js/webradr/webradr-app/scripts/data-component-creator;")
+        (call-script (concat "./data-component-creator " component-name " &")))
+    (shell-command (concat cd-command call-script) buf)))
 
 (provide 'init-javascript)
