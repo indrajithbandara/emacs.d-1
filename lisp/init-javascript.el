@@ -218,6 +218,13 @@
   (interactive)
   (cons name '(endpoint-types)))
 
+(defun ryan/create-scene (path name)
+  (interactive)
+  (let ((buf (ryan/gen-switch-buffer "*JS-scene-creation*"))
+        (cmd (concat "cd ~/projects/dev/js/" path "/scripts/scene-creator; ./scene-creator " name)))
+    (shell-command cmd)))
+
+
 (ryan/create-data-driven-config 'report (ryan/create-data-driven-service 'report 'GET 'POST) 'ReportSubmission 'foo)
 
 (defun ryan/create-data-driven-component (name config)
@@ -226,9 +233,6 @@
         (cd-scripts "cd ~/projects/dev/js/webradr/webradr-app/scripts;")
         (module-create (concat "cd module-creator; ./module-creator " name "; cd ../;"))
         (service-create (concat "cd service-creator; ./service-creator " name)))
-    ;; cd module-creator; ./module-creator $COMPONENT_NAME; cd ../;
-    ;; cd service-creator; ./service-creator $COMPONENT_NAME; cd ../;
-    ;; cd scene-creator; ./scene-creator $COMPONENT_NAME; cd ../;
 
     (shell-command (concat cd-command call-script) buf)))
 
