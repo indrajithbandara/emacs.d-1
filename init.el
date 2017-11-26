@@ -143,6 +143,8 @@
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
 (setq exec-path (append exec-path '("/usr/local/bin")))
+(setq exec-path (append exec-path '("/home/ryan/guix/bin")))
+
 (setq epg-gpg-program "/usr/local/bin/gpg")
 
 (elscreen-start)
@@ -154,13 +156,16 @@
 (maybe-require-package 'ensime)
 (maybe-require-package 'restclient)
 
-(add-to-list 'load-path "~/.emacs.d/es6-snippets")
-(require 'es6-snippets)
+;; (add-to-list 'load-path "~/.emacs.d/es6-snippets")
+;; (require 'es6-snippets)
 
 ;; UTF-8 TERM encoding
 (setenv "LANG" "en_US.UTF-8")
 
 (blink-cursor-mode 0)
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; FRAME MANAGEMENT
 (defun ido-switch-frame ()

@@ -6,11 +6,6 @@
 (maybe-require-package 'indium)
 (maybe-require-package 'helm)
 
-;; Start chrome w/ debugging and connect via indium-connect-to-chrome
-;; open /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 https://localhost:3000
-
-
-
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
   "Javascript mode to use for .js files."
@@ -114,14 +109,12 @@
 (define-key js-mode-map (kbd "M-.") nil)
 
 ;; Tern parses js files and gives type inference!
-
-
 (with-eval-after-load 'company
-                       (add-to-list 'company-backends 'company-tern))
+  (add-to-list 'company-backends 'company-tern))
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
                            (company-mode)
-                           (linum-mode)))
+                           (linum-mode 1)))
 ;; Disable completion keybindings, as we use xref-js2 instead
 (with-eval-after-load 'tern
   (define-key tern-mode-keymap (kbd "M-.") nil)
