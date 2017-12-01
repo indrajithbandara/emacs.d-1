@@ -129,6 +129,7 @@
 (require 'init-gnus)
 (require 'init-workgroups2)
 (require 'init-eyebrowse)
+(require 'init-yasnippets)
 (require 'init-image)
 (require 'init-spotify)
 (require 'init-pr)
