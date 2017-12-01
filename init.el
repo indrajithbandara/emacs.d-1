@@ -128,7 +128,7 @@
 (require 'init-jira)
 (require 'init-gnus)
 (require 'init-workgroups2)
-(require 'init-elscreen)
+(require 'init-eyebrowse)
 (require 'init-image)
 (require 'init-spotify)
 (require 'init-pr)

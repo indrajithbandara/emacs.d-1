@@ -5,6 +5,7 @@
 (maybe-require-package 'company-tern)
 (maybe-require-package 'indium)
 (maybe-require-package 'helm)
+(maybe-require-package 'rjsx-mode)
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
