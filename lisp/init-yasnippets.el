@@ -1,3 +1,3 @@
-(maybe-require-package 'yasnippets-snippets)
+(maybe-require-package 'yasnippet-snippets)
 
 (provide 'init-yasnippets)

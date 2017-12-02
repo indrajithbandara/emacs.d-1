@@ -219,4 +219,7 @@
 
     (shell-command (concat cd-command call-script) buf)))
 
+(add-hook 'js2-mode-hook #'indium-interaction-mode)
+(add-to-list 'evil-emacs-state-modes 'indium-repl-mode)
+
 (provide 'init-javascript)

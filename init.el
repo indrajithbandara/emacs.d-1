@@ -148,7 +148,6 @@
 
 (setq epg-gpg-program "/usr/local/bin/gpg")
 
-(elscreen-start)
 (workgroups-mode 1)
 
 (maybe-require-package 'go-eldoc)
