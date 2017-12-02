@@ -9,6 +9,8 @@
     (setq load-path (remove package-el-site-lisp-dir load-path))))
 
 (require 'package)
+(package-initialize)
+(package-refresh-contents)
 
 
 
