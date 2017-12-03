@@ -141,6 +141,15 @@
 (require 'init-mongo)
 (require 'init-restclient)
 
+(global-set-key (kbd "C-M-d") 'down-list)
+(global-set-key (kbd "C-M-u") 'up-list)
+
+;;; I prefer cmd key for meta
+(setq mac-option-key-is-meta t
+      mac-command-key-is-meta nil
+      mac-command-modifier 'none
+      mac-option-modifier 'meta)
+
 ;; GPG in MacOSX emacs
 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
 (setq exec-path (append exec-path '("/usr/local/bin")))
