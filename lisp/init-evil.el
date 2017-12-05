@@ -46,7 +46,7 @@
 ;; }}
 
 ;; enable evil-mode
-(evil-mode 1)
+(evil-mode 'nil)
 
 ;; {{ @see https://github.com/timcharper/evil-surround for tutorial
 (require 'evil-surround)
