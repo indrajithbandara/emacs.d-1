@@ -6,6 +6,7 @@
 (maybe-require-package 'indium)
 (maybe-require-package 'helm)
 (maybe-require-package 'rjsx-mode)
+(maybe-require-package 'mocha)
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
