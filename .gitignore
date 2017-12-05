@@ -9,7 +9,7 @@ tramp
 .\#*
 ditaa0_9.jar
 network-security.data
-custom.el
+/custom.el
 projectile-bookmarks.eld
 # Org-mode
 .org-id-locations
@@ -33,6 +33,12 @@ history
 # eshell files
 /eshell/history
 /eshell/lastdir
+
+# projectile files
+/projectile-bookmarks.eld
+
+# harvest files
+/.harvest
 
 # elpa packages
 /elpa/
