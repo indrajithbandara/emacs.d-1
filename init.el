@@ -221,6 +221,8 @@
 
 (setq browse-url-browser-function 'choose-browser)
 
+(global-set-key (kbd "C-c i") 'imenu)
+
 ;; Tramp setup...
 (add-to-list 'load-path "~/.emacs.d/tramp-2.2.7/lisp")
 (require 'tramp)
