@@ -213,8 +213,13 @@
 ;;       browse-url-generic-program "icecat")
 
 ;; Open urls with MACOS default
-(setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "open")
+(defun choose-browser (url &rest args)
+  (interactive "sURL: ")
+  (if (y-or-n-p "Use external browser? ")
+      (browse-url-generic url)
+    (w3m-browse-url url)))
+
+(setq browse-url-browser-function 'choose-browser)
 
 ;; Tramp setup...
 (add-to-list 'load-path "~/.emacs.d/tramp-2.2.7/lisp")

@@ -17,4 +17,6 @@
 (when (package-installed-p 'dash-at-point)
   (global-set-key (kbd "C-c D") 'dash-at-point))
 
+(maybe-require-package 'counsel-dash)
+
 (provide 'init-dash)
