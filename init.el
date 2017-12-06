@@ -144,6 +144,8 @@
 (global-set-key (kbd "C-M-d") 'down-list)
 (global-set-key (kbd "C-M-u") 'up-list)
 
+(global-set-key (kbd "C-x TAB") 'counsel-imenu)
+
 ;;; I prefer cmd key for meta
 (setq mac-option-key-is-meta t
       mac-command-key-is-meta nil

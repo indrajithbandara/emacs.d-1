@@ -223,4 +223,6 @@
 (add-hook 'js2-mode-hook #'indium-interaction-mode)
 (add-to-list 'evil-emacs-state-modes 'indium-repl-mode)
 
+(add-hook 'js2-mode-hook (lambda () (push '("function" . ?λ) prettify-symbols-alist)))
+
 (provide 'init-javascript)
