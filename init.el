@@ -52,7 +52,7 @@
 (require 'init-xterm)
 (require 'init-color-theme)
 (require 'init-emacs-w3m)
-;; (require 'init-themes)
+(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
@@ -64,9 +64,6 @@
 
 (require 'init-recentf)
 (require 'init-smex)
-;; If you really prefer ido to ivy, change the comments below. I will
-;; likely remove the ido config in due course, though.
-;; (require 'init-ido)
 (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)
@@ -146,6 +143,9 @@
 
 (global-set-key (kbd "C-x TAB") 'counsel-imenu)
 
+(setq kill-ring-max 500)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
 ;;; I prefer cmd key for meta
 (setq mac-option-key-is-meta t
       mac-command-key-is-meta nil
@@ -167,9 +167,6 @@
 (maybe-require-package 'ensime)
 (maybe-require-package 'restclient)
 
-;; (add-to-list 'load-path "~/.emacs.d/es6-snippets")
-;; (require 'es6-snippets)
-
 ;; UTF-8 TERM encoding
 (setenv "LANG" "en_US.UTF-8")
 
@@ -177,22 +174,6 @@
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-
-;; FRAME MANAGEMENT
-(defun ido-switch-frame ()
-  "Switch frame with ido"
-  (interactive)
-  (when (not (minibufferp))
-    (let* (
-           (frames (frame-list))
-           (frame-to (ido-completing-read "Select Frame:  "
-                                          (mapcar (lambda (frame) (frame-parameter frame 'name)) frames))))
-      (catch 'break
-        (while frames
-          (let ((frame (car frames)))
-            (if (equal (frame-parameter frame 'name) frame-to)
-                (throw 'break (select-frame-set-input-focus frame))
-              (setq frames (cdr frames)))))))))
 
 (global-set-key (kbd "C-x 4 z") 'ido-switch-frame)
 
@@ -209,10 +190,6 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
-
-;; Open urls with icecat
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "icecat")
 
 ;; Open urls with MACOS default
 (defun choose-browser (url &rest args)
@@ -232,8 +209,6 @@
 (setq tramp-remote-path
       (append tramp-remote-path
               '(tramp-own-remote-path)))
-
-(global-linum-mode 0)
 
 ;; MISC stuff from Purcell
 (require-package 'gnuplot)
@@ -257,12 +232,6 @@
 ;;----------------------------------------------------------------------------
 (when (file-exists-p custom-file)
   (load custom-file))
-
-
-;;----------------------------------------------------------------------------
-;; Allow users to provide an optional "init-local" containing personal settings
-;;----------------------------------------------------------------------------
-(require 'init-local nil t)
 
 
 ;;----------------------------------------------------------------------------

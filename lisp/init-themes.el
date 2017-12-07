@@ -1,8 +1,8 @@
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
 ;; If you don't customize it, this is the theme you get.
+(setq molokai-theme-kit t)
 (require 'color-theme-molokai)
-
 
 (setq-default custom-enabled-themes '(color-theme-molokai))
 
@@ -15,7 +15,6 @@
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
-
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
