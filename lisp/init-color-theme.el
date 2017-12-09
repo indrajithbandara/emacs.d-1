@@ -19,21 +19,16 @@
                             (or download-name
                                 (car (last (split-string url "/" t))))))))))
 
-(download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme.el" "~/.emacs.d/themes/" "molokai-theme.el")
-(download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme-kit.el" "~/.emacs.d/themes/" "molokai-theme-kit.el")
-(setq molokai-theme-kit t)
 
-;; {{ work around color theme bug
-;; @see https://plus.google.com/106672400078851000780/posts/KhTgscKE8PM
-(defadvice load-theme (before disable-themes-first activate)
-  ;; diable all themes
-  (dolist (i custom-enabled-themes)
-    (disable-theme i)))
-;; }}
+(defun ryan/load-molokai ()
+  (interactive)
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme.el" "~/.emacs.d/themes/" "molokai-theme.el")
+  (download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme-kit.el" "~/.emacs.d/themes/" "molokai-theme-kit.el")
+  (setq molokai-theme-kit t)
+  (load-theme 'molokai)
+  )
 
-(load-theme 'molokai)
-
-;; This line must be after color-theme-molokai! Don't know why.
-(setq color-theme-illegal-faces "^\\(w3-\\|dropdown-\\|info-\\|linum\\|yas-\\|font-lock\\|dired-directory\\)")
+(ryan/load-molokai)
 
 (provide 'init-color-theme)

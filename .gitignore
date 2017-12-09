@@ -15,6 +15,9 @@ projectile-bookmarks.eld
 .org-id-locations
 *_archive
 
+# Ivy-historian
+.historian
+
 # recent files
 recentf
 
