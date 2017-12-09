@@ -67,7 +67,6 @@
 (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)
-(require 'init-evil)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
