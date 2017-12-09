@@ -26,7 +26,7 @@
   (download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme.el" "~/.emacs.d/themes/" "molokai-theme.el")
   (download-file "https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme-kit.el" "~/.emacs.d/themes/" "molokai-theme-kit.el")
   (setq molokai-theme-kit t)
-  (load-theme 'molokai)
+  (load-theme 'molokai t)
   )
 
 (ryan/load-molokai)
