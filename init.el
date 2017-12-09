@@ -25,6 +25,8 @@
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
+
+(package-refresh-contents)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-compat)
 (require 'init-utils)
