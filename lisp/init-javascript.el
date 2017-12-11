@@ -99,11 +99,15 @@
               (lambda () (inferior-js-keys-mode -1)))))
 
 ;; Xref-js2
-(add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
-(require 'js2-refactor)
-(require 'xref-js2)
-(add-hook 'js2-mode-hook
-          (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+(defun ryan/setup-xref-js2 ()
+  (interactive)
+  (download-file "https://raw.githubusercontent.com/NicolasPetton/xref-js2/master/xref-js2.el" "~/.emacs.d/site-lisp/xref-js2/" "xref-js2.el")
+  (add-to-list 'load-path "~/.emacs.d/site-lisp/xref-js2/")
+  (require 'xref-js2)
+  (add-hook 'js2-mode-hook
+            (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+
+(ryan/setup-xref-js2)
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-r")
