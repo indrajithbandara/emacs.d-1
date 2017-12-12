@@ -224,6 +224,15 @@
 
     (shell-command (concat cd-command call-script) buf)))
 
+(defun ryan/create-service (service-name)
+  (interactive)
+  (let* ((buf (ryan/gen-switch-buffer "*JS-data-driven-create*"))
+         (cd-scripts "cd ~/projects/dev/github/redux-scripts;")
+         (module-create (concat "./module-creator " service-name))
+         (service-create (concat "./service-creator " service-name))
+         (call-script (concat cd-scripts module-create service-create)))
+    (shell-command call-script buf)))
+
 (add-hook 'js2-mode-hook #'indium-interaction-mode)
 (add-hook 'js2-mode-hook (lambda () (push '("function" . ?λ) prettify-symbols-alist)))
 

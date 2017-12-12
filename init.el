@@ -103,7 +103,7 @@
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
-
+(require 'init-exchange)
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
