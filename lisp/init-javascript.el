@@ -226,10 +226,11 @@
 
 (defun ryan/create-service (service-name)
   (interactive)
-  (let* ((buf (ryan/gen-switch-buffer "*JS-data-driven-create*"))
+  (let* ((buf (ryan/gen-switch-buffer "*redux-service-creation"))
          (cd-scripts "cd ~/projects/dev/github/redux-scripts;")
-         (module-create (concat "./module-creator " service-name))
-         (service-create (concat "./service-creator " service-name))
+         (project-dir (read-string "Enter a project dir: "))
+         (module-create (concat "./module-creator " service-name " " project-dir " ;"))
+         (service-create (concat "./service-creator " service-name " " project-dir " ;"))
          (call-script (concat cd-scripts module-create service-create)))
     (shell-command call-script buf)))
 
