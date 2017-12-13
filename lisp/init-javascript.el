@@ -236,7 +236,7 @@
 
 (defun ryan/create-redux-module (module-name)
   (interactive)
-  (let* ((buf (ryan/gen-switch-buffer "*redux-service-creation"))
+  (let* ((buf (ryan/gen-switch-buffer "*redux-module-creation"))
          (cd-scripts "cd ~/projects/dev/github/redux-scripts;")
          (project-dir (read-string "Enter a project dir: "))
          (module-create (concat "./module-creator " service-name " " project-dir " ;"))
