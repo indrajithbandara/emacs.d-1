@@ -224,7 +224,7 @@
 
     (shell-command (concat cd-command call-script) buf)))
 
-(defun ryan/create-service (service-name)
+(defun ryan/create-redux-service (service-name)
   (interactive)
   (let* ((buf (ryan/gen-switch-buffer "*redux-service-creation"))
          (cd-scripts "cd ~/projects/dev/github/redux-scripts;")
@@ -232,6 +232,15 @@
          (module-create (concat "./module-creator " service-name " " project-dir " ;"))
          (service-create (concat "./service-creator " service-name " " project-dir " ;"))
          (call-script (concat cd-scripts module-create service-create)))
+    (shell-command call-script buf)))
+
+(defun ryan/create-redux-module (module-name)
+  (interactive)
+  (let* ((buf (ryan/gen-switch-buffer "*redux-service-creation"))
+         (cd-scripts "cd ~/projects/dev/github/redux-scripts;")
+         (project-dir (read-string "Enter a project dir: "))
+         (module-create (concat "./module-creator " service-name " " project-dir " ;"))
+         (call-script (concat cd-scripts module-create)))
     (shell-command call-script buf)))
 
 (add-hook 'js2-mode-hook #'indium-interaction-mode)
