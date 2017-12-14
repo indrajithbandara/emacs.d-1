@@ -3,23 +3,11 @@
   (interactive)
   (gnus-group-list-all-groups 5))
 
-;; gnus+davmail bug, so I have to use pop3 for davmail
-;; http://permalink.gmane.org/gmane.emacs.gnus.general/83301
-;; but delete all the mails on server is scary
 (setq pop3-leave-mail-on-server t)
 
 (add-hook 'gnus-group-mode-hook
-    ;; list all the subscribed groups
-    (lambda () (local-set-key "o" 'my-gnus-group-list-subscribed-groups )))
+          (lambda () (local-set-key "o" 'my-gnus-group-list-subscribed-groups )))
 
-;; (setq message-send-mail-function 'message-send-mail-with-sendmail
-;;       sendmail-program "/usr/local/bin/msmtp"
-;;       gnus-permanently-visible-groups ".*")
-
-
-;; @see http://www.fnal.gov/docs/products/emacs/emacs/gnus_3.html#SEC60
-;; QUOTED: If you are using an unthreaded display for some strange reason ...
-;; Yes, when I search email in IMAP folder, emails are not threaded
 (setq gnus-article-sort-functions
       '((not gnus-article-sort-by-date)
         (not gnus-article-sort-by-number)))
@@ -110,5 +98,17 @@ Final result is inserted into kill-ring and returned."
 (with-eval-after-load "mm-decode"
   (add-to-list 'mm-discouraged-alternatives "text/html")
   (add-to-list 'mm-discouraged-alternatives "text/richtext"))
+
+(maybe-require-package 'alert)
+(maybe-require-package 'gnus-desktop-notify)
+(gnus-desktop-notify-mode)
+(gnus-demon-add-scanmail)
+
+(setq send-mail-function    'smtpmail-send-it
+      smtpmail-smtp-server  "mail.office365.com"
+      smtpmail-stream-type  'starttls
+      smtpmail-smtp-service 587)
+
+(gnus-demon-add-handler 'gnus-demon-scan-news 2 t)
 
 (provide 'init-gnus)
