@@ -137,6 +137,7 @@
 (require 'init-guile)
 (require 'init-mongo)
 (require 'init-restclient)
+(require 'init-term)
 
 (global-set-key (kbd "C-M-d") 'down-list)
 (global-set-key (kbd "C-M-u") 'up-list)

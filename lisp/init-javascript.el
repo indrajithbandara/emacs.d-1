@@ -176,6 +176,11 @@
     (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
     (shell-command "npm run dev-local &" buf)))
 
+(defun ryan/webradr-api-indium ()
+  (interactive)
+  (cd "~/projects/dev/js/webradr/webradr-ep-generic-api")
+  (indium-run-node "npm run dev-local"))
+
 (defun ryan/enable-js-standard ()
   (interactive)
   (flycheck-select-checker 'javascript-standard))
