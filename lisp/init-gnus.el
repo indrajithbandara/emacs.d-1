@@ -109,6 +109,10 @@ Final result is inserted into kill-ring and returned."
       smtpmail-stream-type  'starttls
       smtpmail-smtp-service 587)
 
+;; (setq smtpmail-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-service 587
+;;       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t)
 
 (provide 'init-gnus)
