@@ -139,8 +139,11 @@
 (require 'init-restclient)
 (require 'init-term)
 
+(setq mac-command-modifier 'super)
+
 (global-set-key (kbd "C-M-d") 'down-list)
 (global-set-key (kbd "C-M-u") 'up-list)
+
 
 (global-set-key (kbd "C-x TAB") 'counsel-imenu)
 

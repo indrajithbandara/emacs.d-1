@@ -26,8 +26,6 @@
                                   collect entry)))
 
 
-;; js2-mode
-
 ;; Change some defaults: customize them to override
 (setq-default js2-basic-offset 2
               js2-bounce-indent-p nil)
@@ -54,50 +52,6 @@
 
 (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
 
-
-;; Javascript nests {} and () a lot, so I find this helpful
-
-
-
-;;; Coffeescript
-
-(after-load 'coffee-mode
-  (setq coffee-js-mode preferred-javascript-mode
-        coffee-tab-width preferred-javascript-indent-level))
-
-(when (fboundp 'coffee-mode)
-  (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode)))
-
-;; ---------------------------------------------------------------------------
-;; Run and interact with an inferior JS via js-comint.el
-;; ---------------------------------------------------------------------------
-
-(when (maybe-require-package 'js-comint)
-  (setq inferior-js-program-command "js")
-
-  (defvar inferior-js-minor-mode-map (make-sparse-keymap))
-  (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
-  (define-key inferior-js-minor-mode-map "\C-\M-x" 'js-send-last-sexp-and-go)
-  (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
-  (define-key inferior-js-minor-mode-map "\C-c\C-b" 'js-send-buffer-and-go)
-  (define-key inferior-js-minor-mode-map "\C-cl" 'js-load-file-and-go)
-
-  (define-minor-mode inferior-js-keys-mode
-    "Bindings for communicating with an inferior js interpreter."
-    nil " InfJS" inferior-js-minor-mode-map)
-
-  (dolist (hook '(js2-mode-hook js-mode-hook))
-    (add-hook hook 'inferior-js-keys-mode)))
-
-;; ---------------------------------------------------------------------------
-;; Alternatively, use skewer-mode
-;; ---------------------------------------------------------------------------
-
-(when (maybe-require-package 'skewer-mode)
-  (after-load 'skewer-mode
-    (add-hook 'skewer-mode-hook
-              (lambda () (inferior-js-keys-mode -1)))))
-
 ;; Xref-js2
 (defun ryan/setup-xref-js2 ()
   (interactive)
@@ -119,6 +73,7 @@
   (add-to-list 'company-backends 'company-tern))
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
+                           (rjsx-mode)
                            (company-mode)
                            (linum-mode 1)))
 ;; Disable completion keybindings, as we use xref-js2 instead
@@ -248,7 +203,6 @@
          (call-script (concat cd-scripts module-create)))
     (shell-command call-script buf)))
 
-(add-hook 'js2-mode-hook #'indium-interaction-mode)
 (add-hook 'js2-mode-hook (lambda () (push '("function" . ?λ) prettify-symbols-alist)))
 
 (provide 'init-javascript)
