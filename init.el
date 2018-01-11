@@ -147,6 +147,8 @@
 
 (global-set-key (kbd "C-x TAB") 'counsel-imenu)
 
+(setq max-lisp-eval-depth 10000)
+(setq max-specpdl-size 100000)
 (setq kill-ring-max 500)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 

@@ -73,7 +73,6 @@
   (add-to-list 'company-backends 'company-tern))
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
-                           (rjsx-mode)
                            (company-mode)
                            (linum-mode 1)))
 ;; Disable completion keybindings, as we use xref-js2 instead
