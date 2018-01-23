@@ -1,0 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/site-lisp/crypto-portfolio")
+(require 'crypto-portfolio)
+(setq crypto-default-currency '("GBP" . "£")
+      crypto-holdings '(("btc" . "0.00265000") ("eth" . "0.19803900") ("link" . "40") ("ven" . "42") ("trx" . "298"))
+      crypto-entry-price '(("btc" . "10387.85") ("eth" . "751.18") ("link" . "0.66336004") ("ven" . "5.58") ("trx" . "0.06285438")))

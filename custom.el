@@ -7,15 +7,35 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#839496" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"))
+ '(column-number-mode t)
+ '(crypto-crypto-currencies (quote ("BTC" "ETH" "LINK" "VEN")))
+ '(crypto-default-currency (quote ("GBP" . "£")))
+ '(crypto-holdings
+   (quote
+    (("btc" . "0.00265000")
+     ("eth" . "0.19803900")
+     ("link" . "40")
+     ("ven" . "42")
+     ("trx" . "298"))))
+ '(crypto-replacement
+   (quote
+    (("btc" . "bitcoin")
+     ("eth" . "ethereum")
+     ("link" . "chainlink")
+     ("ven" . "vechain")
+     ("trx" . "tron"))))
+ '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" default)))
+    ("82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" default)))
  '(fci-rule-color "#073642")
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized mocha counsel-dash bind-key rg ivy-historian counsel-spotify yasnippet-snippets yasnippets-snippets eyebrowse projectile-ripgrep rjsx-mode org-plus-contrib js2-mode yari yaml-mode yagist workgroups2 whole-line-or-region whitespace-cleanup-mode wgrep-ag w3m vc-darcs unfill tidy textile-mode tagedit switch-window svg sql-indent smex smarty-mode slime-company skewer-less session scss-mode scratch sass-mode ruby-hash-syntax rspec-mode robe rinari regex-tool rainbow-mode rainbow-delimiters projectile-rails project-local-variables pip-requirements php-mode pdf-tools paredit-everywhere page-break-lines osx-location origami org-pomodoro org-jira org-fstree org-cliplink ob-restclient ob-mongo nlinum neotree mwe-log-commands move-dup mmm-mode magithub magit-gh-pulls lua-mode lively less-css-mode ledger-mode jsx-mode json-mode js2-refactor js-doc js-comint ipretty intero inf-mongo indium indent-guide immortal-scratch image+ ibuffer-vc htmlize hl-sexp hippie-expand-slime hindent highlight-symbol highlight-quoted highlight-escape-sequences helm hayoo harvest guide-key goto-gem go-eldoc gnuplot gitignore-mode github-issues github-clone gitconfig-mode git-timemachine git-messenger git-blamed general geiser fullframe flycheck-package flycheck-ledger flycheck-elm flycheck-clojure fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-mark-replace evil-exchange evil-escape erlang ensime elm-mode elisp-slime-nav elein dsvn disable-mouse dired-sort dired+ diminish diff-hl dictionary default-text-scale darcsum csv-nav csv-mode css-eldoc counsel company-tern company-quickhelp company-anaconda color-theme coffee-mode cljsbuild-mode cl-lib-highlight cask-mode bundler bug-reference-github browse-kill-ring browse-at-remote avy auto-compile anzu aggressive-indent ag)))
+    (crypto-portfolio color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized mocha counsel-dash bind-key rg ivy-historian counsel-spotify yasnippet-snippets yasnippets-snippets eyebrowse projectile-ripgrep rjsx-mode org-plus-contrib js2-mode yari yaml-mode yagist workgroups2 whole-line-or-region whitespace-cleanup-mode wgrep-ag w3m vc-darcs unfill tidy textile-mode tagedit switch-window svg sql-indent smex smarty-mode slime-company skewer-less session scss-mode scratch sass-mode ruby-hash-syntax rspec-mode robe rinari regex-tool rainbow-mode rainbow-delimiters projectile-rails project-local-variables pip-requirements php-mode pdf-tools paredit-everywhere page-break-lines osx-location origami org-pomodoro org-jira org-fstree org-cliplink ob-restclient ob-mongo nlinum neotree mwe-log-commands move-dup mmm-mode magithub magit-gh-pulls lua-mode lively less-css-mode ledger-mode jsx-mode json-mode js2-refactor js-doc js-comint ipretty intero inf-mongo indium indent-guide immortal-scratch image+ ibuffer-vc htmlize hl-sexp hippie-expand-slime hindent highlight-symbol highlight-quoted highlight-escape-sequences helm hayoo harvest guide-key goto-gem go-eldoc gnuplot gitignore-mode github-issues github-clone gitconfig-mode git-timemachine git-messenger git-blamed general geiser fullframe flycheck-package flycheck-ledger flycheck-elm flycheck-clojure fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-mark-replace evil-exchange evil-escape erlang ensime elm-mode elisp-slime-nav elein dsvn disable-mouse dired-sort dired+ diminish diff-hl dictionary default-text-scale darcsum csv-nav csv-mode css-eldoc counsel company-tern company-quickhelp company-anaconda color-theme coffee-mode cljsbuild-mode cl-lib-highlight cask-mode bundler bug-reference-github browse-kill-ring browse-at-remote avy auto-compile anzu aggressive-indent ag)))
  '(session-use-package t nil (session))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -43,4 +63,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#1B1D1E" :foreground "#F8F8F2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "xos4" :family "Terminus (TTF)")))))
+ '(default ((t (:inherit nil :stipple nil :background "#1B1D1E" :foreground "#F8F8F2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "xos4" :family "Terminus (TTF)"))))
+ '(font-lock-comment-face ((t (:foreground "gray48" :slant italic)))))

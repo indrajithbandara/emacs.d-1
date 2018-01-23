@@ -202,6 +202,13 @@
          (call-script (concat cd-scripts module-create)))
     (shell-command call-script buf)))
 
+(defun ryan/switch-webradr-env (env)
+  (interactive)
+  (let* ((buf (ryan/gen-switch-buffer "*webradr-env-log*"))
+         (cd-root "cd ~/projects/dev/js/webradr/webradr-app;")
+         (cmd (concat cd-root "npm run env -- " env ";")))
+    (shell-command cmd buf)))
+
 (add-hook 'js2-mode-hook (lambda () (push '("function" . ?λ) prettify-symbols-alist)))
 
 (provide 'init-javascript)
